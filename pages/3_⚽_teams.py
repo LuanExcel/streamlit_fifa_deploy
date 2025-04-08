@@ -7,6 +7,11 @@ st.set_page_config(
 
 )
 
+# Verifica se 'data' existe no session_state
+if 'data' not in st.session_state:
+    st.error("Erro: os dados não foram carregados. Volte para a página inicial.")
+    st.stop()
+
 df_data = st.session_state['data']
 
 clubes = df_data['Club'].value_counts().index
