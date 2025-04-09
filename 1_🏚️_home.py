@@ -4,7 +4,7 @@ import pandas as pd
 from datetime import datetime
 
 if 'data' not in st.session_state:
-    df_data = pd.read_csv(r"datasets\CLEAN_FIFA23_official_data.csv")
+    df_data = pd.read_csv("datasets/CLEAN_FIFA23_official_data.csv")
     df_data = df_data[df_data['Contract Valid Until'] >= datetime.today().year ]
     df_data = df_data[df_data['Value(£)'] > 0 ]
     df_data = df_data.sort_values(by='Overall', ascending=False)
@@ -14,7 +14,8 @@ if 'data' not in st.session_state:
 
 
 st.markdown("# FIFA23 OFFCIAL DATASET! ⚽")
-st.sidebar.markdown("Desenvolvido por (luanr@ymail.com)")
+st.sidebar.markdown(f"Desenvolvido por:")
+st.sidebar.markdown("Luan Rodrigues")
 
 btn = st.button("Acesse os dados no Kagle")
 
